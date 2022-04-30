@@ -6,62 +6,53 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 08:25:25 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/29 14:16:23 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/30 01:56:58 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "playground.h"
 
-extern int		counter;
+extern int	g_len;
+static char	*str;
+
+static void	put_fmt(va_list ap, char **fmt)
+{
+	if (**fmt == '%')
+		ft_putchar('%');
+	else if (**fmt == 'd' || *(*fmt + 1) == 'i' || *(*fmt + 1) == 'u')
+		ft_putnbr_base(va_arg(ap, int), "0123456789");
+	else if (**fmt == 'x')
+		ft_putnbr_base(va_arg(ap, int), "0123456789abcdef");
+	else if (**fmt == 'X')
+		ft_putnbr_base(va_arg(ap, int), "0123456789ABCDEF");
+	else if (**fmt == 'c')
+		ft_putchar(va_arg(ap, int));
+	else if (**fmt == 's')
+	{
+		str = va_arg(ap, char *);
+		if (!str)
+			ft_putstr("(null)");
+		else
+			ft_putstr(str);
+	}
+}
 
 int	ft_printf(char *fmt, ...)
 {
 	va_list	ap;
-	char	*str;
 
 	va_start(ap, fmt);
-	for (char *trv = fmt; *trv; trv++)
+	while (*fmt)
 	{
-		if (*trv == '%')
+		if (*fmt == '%')
 		{
-			if (*(trv + 1) == '%')
-			{
-				ft_putchar('%');
-				trv++;
-			}
-			else if (*(trv + 1) == 'd' || *(trv + 1) == 'i')
-			{
-				ft_putnbr(va_arg(ap, int));
-				trv++;
-			}
-			else if (*(trv + 1) == 'x')
-			{
-				ft_putnbr_base(va_arg(ap, int), "0123456789abcdef");
-				trv++;
-			}
-			else if (*(trv + 1) == 'X')
-			{
-				ft_putnbr_base(va_arg(ap, int), "0123456789ABCDEF");
-				trv++;
-			}
-			else if (*(trv + 1) == 'c')
-			{
-				ft_putchar(va_arg(ap, int));
-				trv++;
-			}
-			else if (*(trv + 1) == 's')
-			{
-				str = va_arg(ap, char *);
-				if (!str)
-					ft_putstr("(null)");
-				else
-					ft_putstr(str);
-				trv++;
-			}
+			fmt++;
+			put_fmt(ap, &fmt);
 		}
 		else
-			ft_putchar(*trv);
+			ft_putchar(*fmt);
+		fmt++;
 	}
 	va_end(ap);
-	return (reset_counter());
+	return (reset_len());
 }

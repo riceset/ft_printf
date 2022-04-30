@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 01:17:18 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/29 14:24:09 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/30 01:21:03 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 int	main(void)
 {
-	int a = 3;
+	// ft_printf("%x", 10);
 	printf("ft:\t%d\n",
-			// ft_printf("%%%%%%x %X %d %s %c\n", 10, 10, 17, "SEVENTEEN", 's'));
-			ft_printf("%%%%%x\n", 3));
+			ft_printf("%%%%%%x %x %X %d %s %c\n", 10, 10, 17, "SEVENTEEN", 's'));
 	printf("or:\t%d\n",
-			// printf("%%%%%%x %X %d %s %c\n", 10, 10, 17, "SEVENTEEN", 's'));
-			printf("%%%%%p\n", &a));
+			printf("%%%%%%x %x %X %d %s %c\n", 10, 10, 17, "SEVENTEEN", 's'));
 	return (0);
 }
