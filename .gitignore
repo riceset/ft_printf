@@ -1,5 +1,5 @@
 *.o
 main
 main.dSYM
-playground.a
+libftprintf.a
 tester/
