@@ -6,13 +6,13 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/30 02:45:29 by tkomeno           #+#    #+#              #
-#    Updated: 2022/04/30 02:45:43 by tkomeno          ###   ########.fr        #
+#    Updated: 2022/04/30 05:02:31 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
-SRCS = ft_printf.c helper.c put.c
+SRCS = ft_printf.c helpers.c
 OBJS = $(SRCS:.c=.o)
 
 EXE = main
