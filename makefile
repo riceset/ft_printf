@@ -5,46 +5,30 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/29 02:23:26 by tkomeno           #+#    #+#              #
-#    Updated: 2022/04/29 02:23:32 by tkomeno          ###   ########.fr        #
+#    Created: 2022/04/30 02:09:57 by tkomeno           #+#    #+#              #
+#    Updated: 2022/04/30 02:14:40 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = playground.a
+NAME = libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
-SRCS = $(wildcard *.c)
+SRCS = ft_printf.c helper.c put.c
 OBJS = $(SRCS:.c=.o)
-DSYM = main.dSYM
-AR = ar -rc
-RM = rm -rf
-EXE = main
-DB = lldb
-CC = gcc
 
-run: all
-	@$(CC) -g $(EXE).c $(NAME) -o $(EXE)
-	@./$(EXE)
+CC = gcc
+AR = ar -rc
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	echo
-	@$(AR) $(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(B_OBJS)
 
 fclean: clean
-	$(RM) $(NAME) $(EXE) $(DSYM)
+	$(RM) $(NAME)
 
-re: fclean run
+re: fclean all
 
-db: run
-	clear
-	$(DB) $(EXE)
-
-norm:
-	@norminette -R CheckForbiddenSourceHeader $(SRCS)
-	@norminette -R CheckDefine includes/*.h
-
-.PHONY: run all clean fclean re db norm
+.PHONY: all clean fclean re

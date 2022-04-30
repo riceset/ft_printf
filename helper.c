@@ -6,11 +6,11 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 14:15:49 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/30 01:46:02 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/30 02:07:24 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "playground.h"
+#include "ft_printf.h"
 
 extern int		g_len;
 

@@ -6,16 +6,16 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 08:25:25 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/30 01:56:58 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/30 02:13:55 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "playground.h"
+#include "ft_printf.h"
 
 extern int	g_len;
 static char	*str;
 
-static void	put_fmt(va_list ap, char **fmt)
+static void	put_fmt(va_list ap, const char **fmt)
 {
 	if (**fmt == '%')
 		ft_putchar('%');
@@ -37,7 +37,7 @@ static void	put_fmt(va_list ap, char **fmt)
 	}
 }
 
-int	ft_printf(char *fmt, ...)
+int	ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
 
