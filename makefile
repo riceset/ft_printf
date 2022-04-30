@@ -6,7 +6,7 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/30 02:09:57 by tkomeno           #+#    #+#              #
-#    Updated: 2022/04/30 02:14:40 by tkomeno          ###   ########.fr        #
+#    Updated: 2022/04/30 02:36:50 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,11 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_printf.c helper.c put.c
 OBJS = $(SRCS:.c=.o)
 
+EXE = main
+DSYM = $(EXE).dSYM
+DB = lldb
 CC = gcc
+RM = rm -rf
 AR = ar -rc
 
 all: $(NAME)
@@ -31,4 +35,22 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bclean: fclean
+	$(RM) $(EXE) $(DSYM)
+
+bre: bclean run
+
+run: all
+	@$(CC) $(EXE).c $(NAME) -o $(EXE)
+	@./$(EXE)
+
+db:
+	@$(CC) -g $(EXE).c $(NAME) -o $(EXE)
+	clear
+	$(DB) $(EXE)
+
+norm:
+	@norminette -R CheckForbiddenSourceHeader $(SRCS)
+	@norminette -R CheckDefine includes/*.h
+
+.PHONY: all clean fclean re run db norm

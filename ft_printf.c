@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 08:25:25 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/30 02:13:55 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/30 02:20:37 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	put_fmt(va_list ap, const char **fmt)
 {
 	if (**fmt == '%')
 		ft_putchar('%');
-	else if (**fmt == 'd' || *(*fmt + 1) == 'i' || *(*fmt + 1) == 'u')
+	else if (**fmt == 'd' || **fmt == 'i' || **fmt == 'u')
 		ft_putnbr_base(va_arg(ap, int), "0123456789");
 	else if (**fmt == 'x')
 		ft_putnbr_base(va_arg(ap, int), "0123456789abcdef");
