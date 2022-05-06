@@ -1,0 +1,25 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    docker-compose.yml                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/05/06 15:24:10 by tkomeno           #+#    #+#              #
+#    Updated: 2022/05/06 15:30:30 by tkomeno          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+services:
+  valgrind:
+    build:
+      context: .
+      dockerfile: ./docker/valgrind/Dockerfile
+  exec:
+    build:
+      context: .
+      dockerfile: ./docker/exec/Dockerfile
+  gdb:
+    build:
+      context: .
+      dockerfile: ./docker/gdb/Dockerfile
