@@ -1,5 +1,0 @@
-*.o
-main
-main.dSYM
-libftprintf.a
-tester/
