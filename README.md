@@ -25,13 +25,11 @@ Compile the library with:
 $ make
 ```
 
-You can test the `ft_printf()` in `main.c` or create a new file and include `ft_printf.h`.
+You can test the `ft_printf()` function by creating a new file and including the `ft_printf.h` header file:
 
 ```c
 #include "ft_printf.h"
 ```
-
-Use `make run` to run the program.
 
 ## Caveats
 
