@@ -6,7 +6,7 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/30 02:45:29 by tkomeno           #+#    #+#              #
-#    Updated: 2022/09/17 13:00:24 by tkomeno          ###   ########.fr        #
+#    Updated: 2022/09/17 16:34:22 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libftprintf.a
 FILES = ft_printf.c \
 		utils.c
 
-SRCS = $(addprefix srcs/,$(FILES))
+SRCS = $(addprefix sources/,$(FILES))
 
 OBJS = $(SRCS:.c=.o)
 
