@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-	<b><i>Because ft_putnbr() and ft_putstr() aren’t enough.</i></b><br>
+    <img src="https://github.com/riceset/riceset/blob/main/42_badges/ft_printfe.png" />
 </p>
 
 ## Summary
@@ -36,7 +36,7 @@ For example, let's create a ``main.c`` file.
 int main(void)
 {
       // Call the function
-      ft_printf("Testing ft_printf!");
+      ft_printf("Hello %d!", 1);
       return (0);
 }
 ```
@@ -47,7 +47,7 @@ gcc main.c libftprintf.a && ./a.out
 ```
 Output should be:
 ```
-Testing ft_printf!
+Hello 1!
 ```
 
 ## Caveats
