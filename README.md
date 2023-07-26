@@ -7,9 +7,10 @@
 </p>
 
 ## Summary
-
-> The goal of this project is pretty straightforward. You will recode `printf()`.
-> You will mainly learn about using a variable number of arguments.
+> For the ft_printf project of the 42 school cursus,
+> we must recreate the famous C library printf function.
+> This project teaches us about variadic arguments as well
+> as structures if we plan to implement printf's extra flags.
 
 ## Getting started
 
@@ -25,21 +26,72 @@ Compile the library with:
 $ make
 ```
 
-You can test the `ft_printf()` function by creating a new file and including the `ft_printf.h` header file:
+### Basic Usage
+For example, let's create a ``main.c`` file.
 
 ```c
+// Include the header
 #include "ft_printf.h"
+
+int main(void)
+{
+      // Call the function
+      ft_printf("Testing ft_printf!");
+      return (0);
+}
+```
+
+Compile the ``main.c`` file with the ft_printf library and run the program:
+```bash
+gcc main.c libftprintf.a && ./a.out
+```
+Output should be:
+```
+Testing ft_printf!
 ```
 
 ## Caveats
 
 This version of `printf()` only supports the following conversions:
-- ***%c***
-- ***%s***
-- ***%p***
-- ***%d***
-- ***%i***
-- ***%u***
-- ***%x***
-- ***%X***
-- ***%%***
+
+<table>
+    <thead>
+        <tr>
+            <th colspan=3><h4>Specifiers</h4></th>
+        </tr>
+        <tr>
+            <th>Format Specifier</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="center">%</td>
+            <td>% followed by another % character writes % to the screen.</td>
+        </tr>
+        <tr>
+            <td align="center">c</td>
+            <td>writes a single character.</td>
+        </tr>
+        <tr>
+            <td align="center">s</td>
+            <td>writes a character string.</td>
+        </tr>
+        <tr>
+            <td align="center">p</td>
+            <td>writes an implementation-defined character sequence defining a pointer address.</td>
+        </tr>
+        <tr>
+            <td align="center">d or i</td>
+            <td>writes a signed integer to decimal representation.</td>
+        </tr>
+        <tr>
+            <td align="center">u</td>
+            <td>writes an unsigned integer to decimal representation.</td>
+        </tr>
+        <tr>
+            <td align="center">x or X</td>
+            <td>writes an unsigned integer to hexadecimal representation.</td>
+        </tr>
+    </tbody>
+</table>
